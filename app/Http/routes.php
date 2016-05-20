@@ -11,9 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
-Route::get('blog', 'PostController@index');
+Route::get('/', 'PostController@index');
+
+Route::get('admin/posts', ['as' => 'admin.posts.index', 'uses'=>'PostsAdminController@index']);
+Route::get('admin/posts/create', ['as' => 'admin.posts.create', 'uses'=>'PostsAdminController@create']);
+
+//LISTANDO OS POSTS
+Route::post('admin/posts/store', ['as' => 'admin.posts.store', 'uses'=>'PostsAdminController@store']);
+
+//EDITANDO OS POSTS
+Route::get('admin/posts/edit/{id}', ['as' => 'admin.posts.edit', 'uses'=>'PostsAdminController@edit']);
+
+
+Route::put('admin/posts/update/{id}', ['as' => 'admin.posts.update', 'uses'=>'PostsAdminController@update']);
