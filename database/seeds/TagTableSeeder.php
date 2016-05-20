@@ -1,5 +1,6 @@
 <?php
 
+use App\Tag;
 use Illuminate\Database\Seeder;
 
 class TagTableSeeder extends Seeder
@@ -11,7 +12,7 @@ class TagTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Tag::truncate();
+        Tag::truncate();
 
         factory(Tag::class, 10)->create();
     }
