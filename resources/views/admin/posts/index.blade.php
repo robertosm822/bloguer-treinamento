@@ -29,7 +29,15 @@
                         <tr>
                             <td>{{$post->id}}</td>
                             <td>{{ $post->title }}</td>
-                            <td><a href='{{ asset("/admin/posts/edit/$post->id")}}'>Editar</a> | <a href='{{ asset("admin/posts/destroy/$post->id")}}'>Apagar</a> </td>
+                            <td>
+                                <a class="btn btn-info btn-mini" href='{{ asset("/admin/posts/edit/$post->id")}}'>
+                                    <span class="icon-edit"></span> Editar
+
+                                </a>
+                                <a class="btn btn-danger btn-mini" href='{{ asset("admin/posts/destroy/$post->id")}}'>
+                                    <span class="icon-trash"></span> Apagar
+                                </a>
+                            </td>
 
                         </tr>
                             @endforeach

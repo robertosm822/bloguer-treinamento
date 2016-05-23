@@ -15,7 +15,38 @@
 
 Route::get('/', 'PostController@index');
 
-Route::group(['prefix'=> 'admin'], function(){
+Route::get('/auth', function(){
+    /*  Forcar um usuario a autenticar pelo ID
+   $user = \App\User::find(1);
+   Auth::login($user);
+
+   if(Auth::check()){
+       return "Autenticado!";
+   }
+   */
+    if(Auth::attempt(['email'=>'robertomelo822@gmail.com', 'password'=>'23456']) ){
+        return "Autenticado!";
+    }
+    return "Falha ao fazer a autenticação";
+});
+
+/*
+Route::get('/auth/login', 'Auth\AuthController@getLogin');
+Route::post('/auth/login', 'Auth\AuthController@postLogin');
+*/
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
+
+Route::get('/auth/logout', function(){
+    Auth::logout();
+});
+
+
+
+
+Route::group(['prefix'=> 'admin', 'middleware'=>'auth'], function(){
     Route::group(['prefix'=>'posts'], function(){
         Route::get('', ['as' => 'admin.posts.index', 'uses'=>'PostsAdminController@index']);
         Route::get('create', ['as' => 'admin.posts.create', 'uses'=>'PostsAdminController@create']);

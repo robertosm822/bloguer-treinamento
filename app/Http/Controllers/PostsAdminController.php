@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class PostsAdminController extends Controller
 {
@@ -19,6 +20,7 @@ class PostsAdminController extends Controller
         $this->post = $post;
     }
 
+  
 
     public function index(){
         $posts = $this->post->paginate(5);
