@@ -27,6 +27,11 @@
                         @include('admin.posts._form')
 
                         <div class="form-group">
+                            {!! Form::label('tags','Tags', ['style'=>'text-align:left; margin-right:10px;','class'=>'control-label']) !!}
+                            {!! Form::textarea('tags', null, ['class'=> 'form-control span12']) !!}
+                        </div>
+
+                        <div class="form-group">
                             {!! Form::submit('Publicar', ['style'=>'margin-top: 16px;','class'=>'btn btn-primary span4']) !!}
                         </div>
 

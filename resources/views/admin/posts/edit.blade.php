@@ -22,9 +22,14 @@
             <div class="block-content collapse in">
                 <div class="span12">
 
-                    {!! Form::model($post,['route'=>'admin.posts.update',$post->id,'method'=>'put']) !!}
+                    {!! Form::model($post,['route'=>['admin.posts.update',$post->id],'method'=>'put']) !!}
 
                         @include('admin.posts._form')
+
+                        <div class="form-group">
+                            {!! Form::label('tags','Tags', ['style'=>'text-align:left; margin-right:10px;','class'=>'control-label']) !!}
+                            {!! Form::textarea('tags', $post->TagList, ['class'=> 'form-control span12']) !!}
+                        </div>
 
                         <div class="form-group">
                             {!! Form::submit('Publicar', ['style'=>'margin-top: 16px;','class'=>'btn btn-primary span4']) !!}
