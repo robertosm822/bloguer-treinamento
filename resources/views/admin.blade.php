@@ -43,42 +43,22 @@
                 </ul>
                 <ul class="nav">
                     <li class="active">
-                        <a href="#">Dashboard</a>
+                        <a href="{{route('admin.posts.index')}}">Dashboard</a>
                     </li>
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Settings <b class="caret"></b>
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Posts <b class="caret"></b>
 
                         </a>
                         <ul class="dropdown-menu" id="menu1">
                             <li>
-                                <a href="#">Tools <i class="icon-arrow-right"></i>
+                                <a href="{{route('admin.posts.create')}}">Adiconar Novo <i class="icon-circle-arrow-up"></i>
 
                                 </a>
-                                <ul class="dropdown-menu sub-menu">
-                                    <li>
-                                        <a href="#">Reports</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Logs</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Errors</a>
-                                    </li>
-                                </ul>
                             </li>
                             <li>
-                                <a href="#">SEO Settings</a>
+                                <a href="#">Listar Todos</a>
                             </li>
-                            <li>
-                                <a href="#">Other Link</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">Other Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Other Link</a>
-                            </li>
+
                         </ul>
                     </li>
                     <li class="dropdown">
