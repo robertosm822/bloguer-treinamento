@@ -24,6 +24,8 @@
     <div>
 
         <button class="btn btn-large btn-primary" type="submit"> ENTRAR </button>
+        <br />
+        <a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
     </div>
 </form>
 

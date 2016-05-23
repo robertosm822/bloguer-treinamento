@@ -43,7 +43,11 @@ Route::get('/auth/logout', function(){
     Auth::logout();
 });
 
-
+/* TESTAR ESTA ADAPTACAO DE GAVAGACAO DE COMMENTARIOS  */
+Route::get('/post/{id}/comment', function (Request $request, $id) {
+    $post = Post::find($id);
+    $post->comments->create($request->all());
+});
 
 
 Route::group(['prefix'=> 'admin', 'middleware'=>'auth'], function(){

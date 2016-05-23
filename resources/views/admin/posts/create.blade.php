@@ -32,6 +32,11 @@
                         </div>
 
                         <div class="form-group">
+                            {!! Form::label('comments','Comentário', ['style'=>'text-align:left; margin-right:10px;','class'=>'control-label']) !!}
+                            {!! Form::textarea('comments', null, ['class'=> 'form-control span12']) !!}
+                        </div>
+
+                        <div class="form-group">
                             {!! Form::submit('Publicar', ['style'=>'margin-top: 16px;','class'=>'btn btn-primary span4']) !!}
                         </div>
 

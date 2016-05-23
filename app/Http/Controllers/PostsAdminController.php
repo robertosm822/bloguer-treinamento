@@ -40,6 +40,7 @@ class PostsAdminController extends Controller
         //apos isso sincroniza os dados relacionados
         $post->tags()->sync($this->getTagsIds($request->tags));
 
+
         //redirecionar
         return redirect()->route('admin.posts.index');
     }
@@ -52,6 +53,7 @@ class PostsAdminController extends Controller
     public function update($id, PostRequest $request){
         $this->post->find($id)->update($request->all());
         $post = $this->post->find($id);
+
         //apos isso sincroniza os dados relacionados
         $post->tags()->sync($this->getTagsIds($request->tags));
 
@@ -74,6 +76,19 @@ class PostsAdminController extends Controller
         }
 
         return $tagIDs;
+    }
+
+    private function getCommentIds($coments){
+        $commnetList = array_map('trim', explode(',', $coments));
+        //filtrar os campos em brancos, eliminando-os
+        $commnetList = array_filter($commnetList);
+        //varrer se ja existe esta mesma tag
+        $comentsIDs = [];
+        foreach ($commnetList as $comentName){
+            $comentsIDs[] = Tag::firstOrCreate(['comment'=> $comentName])->id;
+        }
+
+        return $comentsIDs;
     }
 
 }

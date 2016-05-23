@@ -53,7 +53,9 @@
                         <p class="post-meta">Postado por <a href="#">Admministrador</a> em {{ $post->created_at }} </p>
                     </div>
 
-                        <h4><u>Comentários</u></h4>
+
+                            <h4><u>Comentários</u></h4>
+
                         @foreach($post->comments as $comment)
 
 
@@ -76,6 +78,10 @@
                                 </div><!-- /col-sm-5 -->
                             </div><!-- /row -->
                         @endforeach
+                <h4><u>TAGS:</u></h4>
+                    @foreach($post->tags as $tags)
+                        <span class="label label-info">{{$tags->name}}</span>
+                    @endforeach
                     <hr>
 
 
